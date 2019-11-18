@@ -1,8 +1,15 @@
 var Flight = require('../models/flight');
 
 module.exports = {
+    index,
     new: newFlight,
     create
+}
+
+function index(req, res){
+    Flight.find({}, function(err, flights){
+        res.render('flights/index', {flights});
+    });
 }
 
 function create(req, res) {
@@ -12,7 +19,7 @@ function create(req, res) {
       if (err) return res.render('flights/new');
       console.log(flight);
       // for now, redirect right back to new.ejs
-      res.redirect('/flights/new');
+      res.redirect('/flights');
     });
   }
 
