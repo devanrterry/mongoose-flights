@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Mongoose Flights</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
+      <nav>
+        <a href = '/flights'>All Flights</a>
+        <a href = '/flights/new'>Add Flights</a>
+      </nav>
         <h2>Flight List</h2>
         <table>
           <thead>
+            <th>Airport</th>
             <th>Airline</th>
             <th>Flight No</th>
             <th>Departs</th>
@@ -18,9 +23,11 @@
           <tbody>
           <% flights.forEach(function(flight) { %>
             <tr>
+              <td><%= flight.airport %></td>
               <td><%= flight.airline %></td>
               <td><%= flight.flightNo %></td>
-              <td><%= flight.date %></td>
+              <td><%= flight.departs %></td>
+              <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
             </tr>
           <% }) %>
           </tbody>
