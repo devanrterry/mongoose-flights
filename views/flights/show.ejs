@@ -1,64 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mongoose Flights</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-<body>
-      <nav>
-        <a href = '/flights'>All Flights</a>
-        <a href = '/flights/new'>Add Flights</a>
-      </nav>
-        <h2>Flight Details</h2>
-            <section id="show-page">
-                <div>Airport: </div>
-                <div><%= flight.airport %></div><br>
-                <div>Airline: </div>
-                <div><%= flight.airline %></div><br>
-                <div>Flight No: </div>
-                <div><%= flight.flightNo %></div><br>
-                <div>Departure Time: </div>
-                <div><%= flight.departs %></div><br>
-            </section><br>
-            <h4>Add Destination</h4>
-            <form>
-            <label>Destination Airport:
-                    <select name="airport">
-                          <option value= "">-select airport-</option>
-                          <option value="AUS">AUS</option>
-                          <option value="DAL">DAL</option>
-                          <option value="LAX">LAX</option>
-                          <option value="SAN">SAN</option>
-                          <option value="SEA">SEA</option>
-                    </select><br>
-            </label><br>
-            <label>Arrival Time:
-                    <input type="date" name="destinations">
-                    <input type="time" name="destinations">
-            </label><br><br>
-            <input type="submit" value="Add Destination"><br>
-            </form>
 
-            <% if (flight.destinations.length) { %>
-            <table>
-                <thead>
-                    <th>Arrival Airport</th>
-                    <th>Arrival Time</th>
-                </thead>
-                <tbody>
-                    <% flight.destinations.forEach(function(des) { %>
-                      <tr>
-                        <td><%= des.airport %></td>
-                        <td><%= des.arrival %></td>
-                      </tr>
-                    <% }); %>
-                </tbody>
-            </table>
-            <% } else { %>
-                <h5>No Destinations Yet</h5>
-              <% } %>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mongoose Flights</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <nav>
+    <a href='/flights'>All Flights</a>
+    <a href='/flights/new'>Add Flights</a>
+  </nav>
+  <h2>Flight Details</h2>
+    <section id="show-page">
+      <div>Airport: </div>
+      <div><%= flight.airport %></div><br>
+      <div>Airline: </div>
+      <div><%= flight.airline %></div><br>
+      <div>Flight No: </div>
+      <div><%= flight.flightNo %></div><br>
+      <div>Departure Time: </div>
+      <div><%= flight.departs %></div><br>
+    </section><br>
+    <a href="/tickets/new"
+    <%- title === 'Add Ticket' ? 'class="active"' : '' %>>
+    ADD TICKET</a>
+  <h4>Add Destination</h4>
+  <form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
+    <label>Destination Airport:
+      <select name="airport">
+        <option value="">-select airport-</option>
+        <option value="AUS">AUS</option>
+        <option value="DAL">DAL</option>
+        <option value="LAX">LAX</option>
+        <option value="SAN">SAN</option>
+        <option value="SEA">SEA</option>
+      </select><br>
+    </label><br>
+    <label>Arrival Time:
+      <input type="datetime-local" name="arrival">
+    </label><br><br>
+    <input type="submit" value="Add Destination"><br>
+  </form>
+
+  <% if (flight.destinations.length) { %>
+  <table>
+    <thead>
+      <th>Arrival Airport</th>
+      <th>Arrival Time</th>
+    </thead>
+    <tbody>
+      <% flight.destinations.forEach(function(des) { %>
+      <tr>
+        <td><%= des.airport %></td>
+        <td><%= des.arrival %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <% } else { %>
+  <h4>No Destinations Yet</h4>
+  <% } %>
 </body>
+
 </html>
