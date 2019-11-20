@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,8 +24,7 @@
       <div>Departure Time: </div>
       <div><%= flight.departs %></div><br>
     </section><br>
-    <a href="/tickets/new"
-    <%- title === 'Add Ticket' ? 'class="active"' : '' %>>
+    <a href="/flights/<%= flight._id %>/tickets/new">
     ADD TICKET</a>
   <h4>Add Destination</h4>
   <form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
@@ -65,6 +63,9 @@
   <h4>No Destinations Yet</h4>
   <% } %>
   <h4>Tickets</h4>
+    <% tickets.forEach(t => { %>
+        <li><%= t.seat %> <%= t.price %></li>
+   <%  }) %>
 </body>
 
 </html>
