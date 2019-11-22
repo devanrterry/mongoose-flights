@@ -30,8 +30,11 @@ body > nav {
 }
 
 div {
- 
   display: grid;
+}
+
+.flightinfo {
+  font-size: 1.8rem;
 }
 
 .newflight {
@@ -41,8 +44,17 @@ div {
 
 h2 {
   margin: 50px 0px 50px 0px;
+  text-decoration: underline;
 }
 
+h4 {
+  text-decoration: underline;
+}
+.nodestination {
+  font-size: 1rem;
+  padding: 20px;
+  font-style: italic;
+}
 nav > a {
   margin: 20px;
   text-decoration: none;
