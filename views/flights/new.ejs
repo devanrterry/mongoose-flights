@@ -1,20 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-<body>
-      <nav>
-        <a href = '/flights'>All Flights</a>
-        <a href = '/flights/new'>Add Flights</a>
-      </nav>
+<%- include('../partials/header') %>
     <h2>Enter a New Flight</h2>
 <form action="/flights" method="POST">
-  <label>Airport:
+  <label class= "newflight">Airport:
       <select name="airport">
             <option value= "">-select airport-</option>
             <option value="AUS">AUS</option>
@@ -24,7 +11,7 @@
             <option value="SEA">SEA</option>
       </select>
       </label><br>
-  <label>Airline:
+  <label class= "newflight">Airline:
 	<select name="airline">
         <option value= "">-select airline-</option>
         <option value="American">American</option>
@@ -32,15 +19,15 @@
         <option value="United">United</option>
 	</select>
 	</label><br>
-	<label>Flight No:
+	<label class= "newflight">Flight No:
 	  <input type="number" name="flightNo">
 	</label><br>
-	<label>Departs:
+	<label class= "newflight">Departs:
     <input type="date" name="departs">
     <input type="time" name="departs">
   </label><br>
   <br>
-	<input type="submit" value="Add Flight">
+	<input class="button" type="submit" value="Add Flight">
 </form>
 </body>
 </html>
