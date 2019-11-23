@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-  <h2>Flight Details</h2>
+  <h1>Flight Details</h1>
     <section>
       <div>Airport: </div>
       <div class="flightinfo"><%= flight.airport %></div><br>
@@ -10,8 +10,6 @@
       <div>Departure Time: </div>
       <div class="flightinfo"><%= flight.departs %></div><br>
     </section><br>
-    <a href="/flights/<%= flight._id %>/tickets/new">
-    ADD TICKET</a>
   <h4>Add Destination</h4>
   <form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
     <label>Destination Airport:
@@ -49,10 +47,28 @@
   <% } else { %>
   <p class="nodestination">No Destinations Yet</p>
   <% } %>
+  <form> <a href="/flights/<%= flight._id %>/tickets/new">
+    ADD TICKET</a>
+  </form>
+  <% if (tickets.length) { %>
+    <h4>Tickets</h4>
+    <table align="center">
+      <thead>
+        <th>Seat</th>
+        <th>Price</th>
+      </thead>
+      <tbody>
   <% tickets.forEach(t => { %>
-  <h4>Tickets</h4>
-        <li><%= t.seat %> <%= t.price %></li>
-   <%  }) %>
+      <tr>
+        <td><%= t.seat %> </td>
+        <td><%= t.price %></td>
+      </tr>
+    <%  }); %>
+      </tbody>
+    </table>
+   <% } else { %>
+    <p class="nodestination">No Tickets Yet</p>
+    <% } %>
 </body>
 
 </html>
