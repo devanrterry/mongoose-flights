@@ -26,17 +26,18 @@ body > nav {
 .button {
   background-color: rgb(21, 119, 143);
   color: white;
-  border-width: 3px;
+  border-width: 2px;
   border-color: black;
   padding: 10px 10px;
   font-weight: bold;
 }
 
 .button:hover {
-background-color: white;
-color: rgb(21, 119, 143);
+background-color: pink;
+color: black;
 border-color: pink;
 cursor: pointer;
+border: 2px solid black;
 }
 
 .newflinput {
@@ -54,6 +55,8 @@ cursor: pointer;
 .deletebtn {
 background-color: rgb(21, 119, 143);
 color: white;
+font-family: 'Poppins', sans-serif;
+font-weight: bold;
 /* border-radius: 30%; */
 }
 
@@ -122,9 +125,7 @@ th {
 
 h1 {
   margin: 50px 0px 50px 0px;
-  text-decoration: underline;
 }
-
 h4 {
   text-decoration: underline;
 }
@@ -142,8 +143,8 @@ nav > a {
 }
 
 nav > a:hover {
-  color: white;
-  background-color: #020f11;
+  color: black;
+  background-color: pink;
 }
 
 nav > a.active {
@@ -152,4 +153,9 @@ nav > a.active {
 
 #tickettable > thead > th {
   min-width: 100;
+}
+
+a{
+  color: rgb(21, 119, 143);
+
 }

@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
         <h1>Flight List</h1>
+        <% if (flights.length) { %>
         <table id = "flightlist">
           <thead>
             <th>Airport</th>
@@ -18,11 +19,14 @@
               <td><%= flight.departs %></td>
               <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
               <form action="/flights/<%= flight._id %>?_method=DELETE", method="POST">
-                <td><button class= "deletebtn" type="delete">X</button></td>
+                <td><button class= "button" type="delete">X</button></td>
               </form>
             </tr>
           <% }) %>
           </tbody>
         </table>
+        <% } else { %>
+          <p class="nodestination">No Flights Added</p>
+          <% } %>
 </body>
 </html>
