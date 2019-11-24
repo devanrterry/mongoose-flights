@@ -6,6 +6,8 @@ body {
   padding: 50px;
   font-family: 'Poppins', sans-serif;
   text-align: center;
+  margin: 0;
+  background-color: lightcyan;
 }
 
 body > nav {
@@ -27,12 +29,14 @@ body > nav {
   border-width: 3px;
   border-color: black;
   padding: 10px 10px;
+  font-weight: bold;
 }
 
 .button:hover {
 background-color: white;
 color: rgb(21, 119, 143);
 border-color: pink;
+cursor: pointer;
 }
 
 .newflinput {
@@ -41,10 +45,20 @@ border-color: pink;
   font-size: 1rem;
 }
 
+#flightdeets {
+  border: 2px solid black;
+  width: 50vw;
+  margin: 0 auto;
+}
+
 .deletebtn {
 background-color: rgb(21, 119, 143);
 color: white;
-border-radius: 30%;
+/* border-radius: 30%; */
+}
+
+.deletebtn:hover {
+  cursor: pointer;
 }
 
 .nfinput {
@@ -72,8 +86,32 @@ div {
   display: grid;
 }
 
+#flightlist, th, td {
+  text-align: center;
+  border: 2px solid black;
+  margin: 0 auto;
+  padding: 8px;
+  background: white;
+}
+
+th {
+  background-color: pink;
+}
+
+#flinfo{
+  border: 1px solid black;
+  width: 20vw;
+  margin: 0 auto;
+  padding-top: 20px;
+  background: white;
+}
+
 .flightinfo {
-  font-size: 1.5rem;
+  font-size: 1rem;
+  background-color: pink;
+  width: 17vw;
+  margin: 0 auto;
+  border: 2px solid black;
 }
 
 .newflight {
@@ -110,4 +148,8 @@ nav > a:hover {
 
 nav > a.active {
   color: white;
+}
+
+#tickettable > thead > th {
+  min-width: 100;
 }

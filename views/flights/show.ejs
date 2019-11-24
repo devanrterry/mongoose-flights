@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
   <h1>Flight Details</h1>
-    <section>
-      <div>Airport: </div>
+    <section id="flinfo">
+      <div >Airport: </div>
       <div class="flightinfo"><%= flight.airport %></div><br>
       <div>Airline: </div>
       <div class="flightinfo"><%= flight.airline %></div><br>
@@ -13,7 +13,7 @@
   <h4>Add Destination</h4>
   <form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
     <label>Destination Airport:
-      <select name="airport">
+      <select class="dropmenu" name="airport" class="newflinput">
         <option value="">-select airport-</option>
         <option value="AUS">AUS</option>
         <option value="DAL">DAL</option>
@@ -23,7 +23,7 @@
       </select><br>
     </label><br>
     <label>Arrival Time:
-      <input type="datetime-local" name="arrival">
+      <input class= "newflinput" type="datetime-local" name="arrival">
     </label><br><br>
     <input class="button" type="submit" value="Add Destination"><br>
   </form>
@@ -46,13 +46,13 @@
   </table>
   <% } else { %>
   <p class="nodestination">No Destinations Yet</p>
-  <% } %>
+  <% } %><br>
   <form> <a href="/flights/<%= flight._id %>/tickets/new">
     ADD TICKET</a>
   </form>
   <% if (tickets.length) { %>
     <h4>Tickets</h4>
-    <table align="center">
+    <table id = "tickettable" align="center" border=1>
       <thead>
         <th>Seat</th>
         <th>Price</th>
@@ -61,7 +61,7 @@
   <% tickets.forEach(t => { %>
       <tr>
         <td><%= t.seat %> </td>
-        <td><%= t.price %></td>
+        <td>$<%= t.price %></td>
       </tr>
     <%  }); %>
       </tbody>
@@ -69,6 +69,10 @@
    <% } else { %>
     <p class="nodestination">No Tickets Yet</p>
     <% } %>
+    <br>
+    <form action="/flights/<%= flight._id %>?_method=DELETE", method="POST">
+      <td><button class= "deletebtn" type="delete">Remove Flight</button></td>
+    </form>
 </body>
 
 </html>
