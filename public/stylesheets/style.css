@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  border-radius: 5px;
 }
 
 body {
@@ -17,6 +18,7 @@ body > nav {
   justify-content: space-evenly;
   align-items: center;
   padding: 0 20px 0 30px;
+  font-size: 1.6rem;
 }
 
 .headernav {
@@ -32,12 +34,25 @@ body > nav {
   font-weight: bold;
 }
 
+.title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 30px;
+  border: 2px solid black;
+}
+
+.title:hover {
+  color: white;
+  background-color: pink;
+  border: 3px solid rgb(21, 119, 143);
+}
+
 .button:hover {
 background-color: pink;
 color: black;
-border-color: pink;
 cursor: pointer;
-border: 2px solid black;
+border: 2px solid white;
 }
 
 .newflinput {
@@ -57,7 +72,6 @@ background-color: rgb(21, 119, 143);
 color: white;
 font-family: 'Poppins', sans-serif;
 font-weight: bold;
-/* border-radius: 30%; */
 }
 
 .deletebtn:hover {
@@ -95,6 +109,7 @@ div {
   margin: 0 auto;
   padding: 8px;
   background: white;
+  border-radius: 0px;
 }
 
 th {
@@ -126,14 +141,13 @@ th {
 h1 {
   margin: 50px 0px 50px 0px;
 }
-h4 {
-  text-decoration: underline;
-}
+
 .nodestination {
   font-size: 1rem;
   padding: 20px;
   font-style: italic;
 }
+
 nav > a {
   margin: 20px;
   text-decoration: none;
@@ -153,9 +167,4 @@ nav > a.active {
 
 #tickettable > thead > th {
   min-width: 100;
-}
-
-a{
-  color: rgb(21, 119, 143);
-
 }
